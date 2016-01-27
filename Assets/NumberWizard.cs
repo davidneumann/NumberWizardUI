@@ -21,7 +21,6 @@ public class NumberWizard : MonoBehaviour {
 	void Start () {
 		max = 1000;
 		min = 1;
-		guess = Random.Range(min, max);
 		guesses = -1;
 		
 		PrintInstructions();
@@ -40,7 +39,7 @@ public class NumberWizard : MonoBehaviour {
 	}
 	
 	void PrintInstructions(){
-		guess = Random.Range(min, max);
+		guess = Random.Range(min, max+1);
 		
 		guesses += 1;
 		
