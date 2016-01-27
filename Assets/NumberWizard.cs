@@ -8,7 +8,8 @@ public class NumberWizard : MonoBehaviour {
 	private int max;
 	private int middle;
 	private int guesses;
-	private int maxGuesses = 6;
+	private int guess;
+	private int maxGuesses = 12;
 	
 	public Text Instructions;
 	public Text MatchingGuess;
@@ -20,6 +21,7 @@ public class NumberWizard : MonoBehaviour {
 	void Start () {
 		max = 1000;
 		min = 1;
+		guess = Random.Range(min, max);
 		guesses = -1;
 		
 		PrintInstructions();
@@ -38,7 +40,7 @@ public class NumberWizard : MonoBehaviour {
 	}
 	
 	void PrintInstructions(){
-		var guess = ((max + min) / 2);
+		guess = Random.Range(min, max);
 		
 		guesses += 1;
 		
@@ -61,12 +63,12 @@ public class NumberWizard : MonoBehaviour {
 	}
 	
 	public void GuessHigher(){
-		min = (max + min + 1) / 2;
+		min = guess;
 		PrintInstructions();
 	}
 	
 	public void GuessLower(){
-		max = (max + min) / 2;
+		max = guess;
 		PrintInstructions();		
 	}
 }
